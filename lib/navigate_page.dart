@@ -10,13 +10,14 @@ class NavigatePage extends StatefulWidget {
   }
 }
 
+List<String> _title_array = ['Biblioteca', 'Meus desenhos', 'Configurações'];
+List<Widget> _body_array = [LibraryPage(), MyDrawsPage(), ConfigPage()];
+
 class NavigatePageState extends State<NavigatePage> {
 
   int _selectedIndex = 0;
-  List<String> _title_array = ['Biblioteca', 'Meus desenhos', 'Configurações'];
-  List<Widget> _body_array = [LibraryPage(), MyDrawsPage(), ConfigPage()];
-  Widget _body = LibraryPage();
-  String _title = 'Biblioteca';
+  Widget _body = _body_array[0];
+  String _title = _title_array[0];
 
   @override
   Widget build(BuildContext context) {
