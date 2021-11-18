@@ -7,7 +7,7 @@ class LibraryPage extends StatelessWidget  {
     return  Scaffold(
       body: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(100, (index) {
+        children: List.generate(20, (index) {
         return Center(
           child: Card(
           color: Colors.white,
