@@ -47,10 +47,9 @@ class LibraryPage extends StatelessWidget  {
   Widget build(BuildContext context) {
 
     final HttpService httpService = HttpService();
-    Future<List<Library>> librarys = httpService.getLibrary();
 
     return FutureBuilder(
-      future: librarys,
+      future: httpService.getLibrary(),
       builder: (BuildContext context, AsyncSnapshot<List<Library>> snapshot) =>
 
           (snapshot.hasData) ?
