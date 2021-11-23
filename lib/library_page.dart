@@ -1,3 +1,4 @@
+import 'package:colorando3/draw_page.dart';
 import 'package:colorando3/library_model.dart';
 import 'package:flutter/material.dart';
 
@@ -5,7 +6,7 @@ import 'http_service.dart';
 
 class LibraryPage extends StatelessWidget  {
 
-  Widget _buildTitle(Library library) {
+  Widget _buildTitle(BuildContext context, Library library) {
 
     Widget title = ListTile(
       title: Text(library.title ,
@@ -28,11 +29,20 @@ class LibraryPage extends StatelessWidget  {
           crossAxisCount: 1 ,
           children: library.images.map((i) =>
             Center(
-              child: Card(
-                elevation: 2,
-                color: Colors.white,
-                child: Container(child: Image.network(i.url), width: 200, height: 200,),
-              ),
+              child: InkWell(
+                    onTap: () {
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DrawPage(url: i.url)),
+                      );
+
+                    },
+                    child:Card(
+                  elevation: 2,
+                  color: Colors.white,
+                  child: Container(child: Image.network(i.url), width: 200, height: 200,)
+              )),
             )
           ).toList(),
 
@@ -53,7 +63,7 @@ class LibraryPage extends StatelessWidget  {
       builder: (BuildContext context, AsyncSnapshot<List<Library>> snapshot) =>
 
           (snapshot.hasData) ?
-            ListView.builder(itemCount: snapshot.data!.length , itemBuilder: (BuildContext context, index) => _buildTitle(snapshot.data![index]))
+            ListView.builder(itemCount: snapshot.data!.length , itemBuilder: (BuildContext context, index) => _buildTitle(context, snapshot.data![index]))
           :
           Center(child:  CircularProgressIndicator()),
 
