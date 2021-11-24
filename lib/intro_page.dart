@@ -18,7 +18,7 @@ class IntroPageState extends State<IntroPage> {
     return Stack(
       children: <Widget>[
         SplashScreen(
-          seconds: 5,
+          seconds: 2,
           gradientBackground: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
