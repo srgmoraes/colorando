@@ -4,7 +4,7 @@ import 'package:colorando3/library_model.dart';
 import 'package:http/http.dart';
 
 class HttpService {
-  final String postsURL = "https://srgmoraes.github.io/pro_svg/library.json";
+  final Uri postsURL = Uri.parse("https://srgmoraes.github.io/pro_svg/library.json");
 
   Future<List<Library>> getLibrary() async {
     Response res = await get(postsURL);
