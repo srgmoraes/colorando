@@ -25,4 +25,12 @@ class Settings {
     }
   }
 
+  static bool getPlayBackground() {
+    return _playBackground;
+  }
+
+  static void setPlayBackground(bool value) {
+    _playBackground = value;
+  }
+
 }

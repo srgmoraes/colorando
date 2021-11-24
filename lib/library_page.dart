@@ -56,6 +56,7 @@ class LibraryPage extends StatelessWidget  {
 
   @override
   Widget build(BuildContext context) {
+    Settings.playBackgroundSong();
 
     final HttpService httpService = HttpService();
 

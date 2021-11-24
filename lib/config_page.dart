@@ -16,8 +16,6 @@ class SwitchListTileDemo extends StatefulWidget {
 }
 
 class _SwitchListTileDemoState extends State<SwitchListTileDemo> {
-  bool _flutter = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,17 +32,18 @@ class _SwitchListTileDemoState extends State<SwitchListTileDemo> {
                   fontWeight: FontWeight.w800,
                   fontSize: 20),
             ),
-            value: _flutter,
+            value: Settings.getPlayBackground(),
             activeColor: Colors.purple,
             inactiveTrackColor: Colors.grey,
             onChanged: (bool value) {
               Settings.changeBackgroundSong(value);
               setState(() {
-                _flutter = value;
+                Settings.setPlayBackground(value);
               });
             },
             secondary: Image.asset(
               "assets/music.png",
+              height: 30.0,
             ),
             controlAffinity: ListTileControlAffinity.trailing,
           ),
