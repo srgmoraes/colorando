@@ -33,7 +33,7 @@ class _ConfigWidgetState extends State<ConfigWidget> {
               _sound = value;
             });
           },
-          secondary: const Icon(Icons.volume_up),
+          secondary: _sound ? const Icon(Icons.volume_up) : const Icon(Icons.volume_up_outlined) ,
         ),
         SwitchListTile(
           title: const Text('Teste'),
